@@ -9,7 +9,7 @@ namespace Task_enum___struct___class_
     internal class LibraryItem
     {
         #region Properties
-        
+
         public int ItemId { get; set; }
         public bool IsAvailable { get; set; }
 
@@ -20,6 +20,7 @@ namespace Task_enum___struct___class_
         public LibraryItem(int itemId)
         {
             ItemId = itemId;
+            IsAvailable = true;
         }
 
         #endregion
@@ -28,13 +29,30 @@ namespace Task_enum___struct___class_
 
         public void CheckOut()
         {
-            IsAvailable = false;
-        }
-        public void ReturnItem()
-        {
-            IsAvailable = true;
+            if (IsAvailable)
+            {
+                IsAvailable = false;
+                Console.WriteLine($"Item {ItemId} checked out.");
+            }
+            else
+            {
+                Console.WriteLine($"Item {ItemId} is already checked out.");
+            }
         }
 
-        #endregion
+        public void ReturnItem()
+        {
+            if (!IsAvailable)
+            {
+                IsAvailable = true;
+                Console.WriteLine($"Item {ItemId} returned.");
+            }
+            else
+            {
+                Console.WriteLine($"Item {ItemId} is already available.");
+            }
+
+            #endregion
+        }
     }
 }
