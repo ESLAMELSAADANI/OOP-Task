@@ -18,11 +18,12 @@ namespace Task_enum___struct___class_
 
         #region Constructors
 
-        public BorrowedBook(Book bookDetails,string borrowerName, DateTime borrowedDate)
+        public BorrowedBook(int id,Book bookDetails,string borrowerName, DateTime borrowedDate):base(id)
         {
             BookDetails = bookDetails;
             BorrowerName = borrowerName;
             BorrowedDate = borrowedDate;
+            IsAvailable = false;
         }
 
         #endregion
@@ -31,6 +32,7 @@ namespace Task_enum___struct___class_
 
         public int CalculateBorrowDuration(DateTime returnDate)
         {
+            IsAvailable = true;
             return returnDate.Day - BorrowedDate.Day;
         } 
 

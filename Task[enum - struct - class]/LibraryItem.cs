@@ -11,17 +11,26 @@ namespace Task_enum___struct___class_
         #region Properties
         
         public int ItemId { get; set; }
-        public static bool IsAvailable { get; set; }
+        public bool IsAvailable { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public LibraryItem(int itemId)
+        {
+            ItemId = itemId;
+        }
 
         #endregion
 
         #region Methods
 
-        public static void CheckOut()
+        public void CheckOut()
         {
             IsAvailable = false;
         }
-        public static void ReturnItem()
+        public void ReturnItem()
         {
             IsAvailable = true;
         }
